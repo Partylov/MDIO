@@ -97,7 +97,7 @@ u8 BVK_SHEEM_WorkCAN(u8 command)
 			TxMessage.Data[1] = BVK_SHEEMinf[9]; 
 			TxMessage.Data[2] = BVK_SHEEMinf[10]; 
 			TxMessage.Data[3] = BVK_SHEEMinf[11];
-			TxMessage.Data[3] = BVK_SHEEMinf[3]; 		// в ответе информация с команды 2 для БВК по RS485 
+			TxMessage.Data[4] = BVK_SHEEMinf[3]; 		// в ответе информация с команды 2 для БВК по RS485 
 			TxMessage.Data[5] = Device.Error&0x01;  
 		break;		
 		case 2:
