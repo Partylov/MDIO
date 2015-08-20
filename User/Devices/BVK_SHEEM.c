@@ -50,18 +50,18 @@ void BVK_SHEEM_Send05()
 // команда 06 - запись уставок токов ключей
 void BVK_SHEEM_Send06()
 {
-	u8 i;
+	//u8 i;
 	StopRS485timer();
 	Device.SendCommand = BVK_SHEEM_Send06;
 	Device.WorkAnswer = Device_WorkDataAfterWriting;
 	Device.NoAnswer = Device_NoAnswerAfterWriting;
 	Device.NextCommand = BVK_SHEEM_Ask01;
-	//test-------------------------{
-	for (i = 0; i<8; i++) // БВК-ШИМ не ответил на эту команду
-	{
-		BVK_SHEEMust[i] = 2;
-	}
-	//-------------------------test}
+//	//test-------------------------{
+//	for (i = 0; i<8; i++) // БВК-ШИМ не ответил на эту команду
+//	{
+//		BVK_SHEEMust[i] = 2;
+//	}
+//	//-------------------------test}
 	CommandNb(Device.Address, 0x06, 4, TimeoutWaitAnswer, BVK_SHEEMust, 8);
 }
 

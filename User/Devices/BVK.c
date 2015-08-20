@@ -56,18 +56,18 @@ void BVK_Send04()
 // команда 06 - запись уставок токов ключей
 void BVK_Send06()
 {
-	u8 i;
+	//u8 i;
 	StopRS485timer();
 	Device.SendCommand = BVK_Send06;
 	Device.WorkAnswer = Device_WorkDataAfterWriting;
 	Device.NoAnswer = Device_NoAnswerAfterWriting;
 	Device.NextCommand = BVK_Ask01;
-	//test-------------------------{
-	for (i = 0; i<8; i++) // БВК-ШИМ не ответил на эту команду
-	{
-		BVKust[i] = 2;
-	}
-	//-------------------------test}
+//	//test-------------------------{
+//	for (i = 0; i<8; i++) // БВК-ШИМ не ответил на эту команду
+//	{
+//		BVKust[i] = 2;
+//	}
+//	//-------------------------test}
 	CommandNb(Device.Address, 0x06, 4, TimeoutWaitAnswer, BVKust, 8);
 }
 
