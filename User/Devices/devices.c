@@ -338,7 +338,7 @@ void	CommandNb(u8	addr, u8 command, u8 AnswLen, u16 Timeout, u8 *data, u8 data_l
 	u8 i;
 	uint16_t  crc;
 	StopRS485timer();
-	TxBufModbus[0] = Device.Address;				// Адрес на шине Modbus.
+	TxBufModbus[0] = addr;				// Адрес на шине Modbus.
 	TxBufModbus[1] = command;									// Код команды.
 	for (i = 2; i<data_len+2; i++)
 	{

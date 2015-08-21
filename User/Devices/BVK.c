@@ -43,14 +43,14 @@ void BVK_Send04()
 	u8 i;
 	StopRS485timer();
 	Device.SendCommand = BVK_Send04;
-	Device.WorkAnswer = BVK_Send06;
-	Device.NoAnswer = BVK_Send06;
-	Device.NextCommand = BVK_Send06;
+	Device.WorkAnswer = BVK_Ask01;//BVK_Send06;
+	Device.NoAnswer = BVK_Ask01;//BVK_Send06;
+	Device.NextCommand = BVK_Ask01;//BVK_Send06;
 	for (i = 0; i<15; i++) 
 	{
 		BVKust[i] = BVKkey;
 	}
-	CommandNb(Device.Address, 0x04, 0, TimeoutWaitAnswer, BVKust, 15);
+	CommandNb(0x20/*Device.Address*/, 0x04, 0, TimeoutWaitAnswer, BVKust, 15);
 }
 
 // команда 06 - запись уставок токов ключей
